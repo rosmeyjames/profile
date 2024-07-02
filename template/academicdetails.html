@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+.registration-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.registration-form input[type="text"], .registration-form input[type="textarea"],.registration-form input[type="date"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+.registration-form a[type="submit"]{
+
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+<body>
+{% for message in messages %}
+{{ message }}
+{% endfor %}
+<form method="POST" class="registration-form" enctype="multipart/form-data" >
+    <h1>EDUCATIONAL DETAILS</h1>
+    {% csrf_token %}
+
+<!--    {{form.as_p}}-->
+<!--<form class="registration-form">-->
+ year of join: <input type="date" name="yoj"placeholder="Year Of Join" required>
+ year of passout: <input type="date" name="yop"placeholder="Year Of Passout" required>
+    <input type="text"name="qualification"placeholder="Qualification" required>
+    <input type="text" name="university"placeholder="University" required>
+    <input type="text" name="institution"placeholder="Institution" required>
+    <input type="text" name="marks"placeholder="Marks" required>
+  <input type="textarea" name="description" placeholder="Description" required>
+  <input type="text"name="username" placeholder="User Name" required>
+
+ <input type="submit" value="submit">
+</form>
+
+</body>
+</html>

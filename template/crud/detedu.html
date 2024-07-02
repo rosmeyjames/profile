@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title><style>
+    body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 1vh;
+    }
+<!--    -->
+    .table {
+    margin-left: auto;
+    padding:2cm,2cm;
+    margin-right: auto;
+
+    border-collapse: separate;
+    border-spacing: 10px; /* Adjust the value as needed */
+
+
+}</style>
+</head>
+    <body>
+    <form style="text-align: center;">
+<h2 >EDUCATION DETAILS</h2>
+<!--        <h2 style="text-align: center;">-->
+<table class="table" style="text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">Year</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">University</th>
+      <th scope="col">Institution</th>
+        <th scope="col">Mark</th>
+        <th scope="col">Description</th>
+         <th scope="col">Operation</th>
+    </tr>
+  </thead>
+    {% for item in cart1 %}
+  <tbody>
+
+    <tr>
+      <td>{{ item.yoj }}-{{item.yop}}</td>
+      <td>{{ item.qualification }}</td>
+      <td>{{ item.university }}</td>
+      <td>{{ item.institution }}</td>
+        <td>{{ item.mark }}</td>
+        <td>{{ item.desc }}</td>
+        <td><a class="btn btn-success" type="submit" href="{% url 'updateeducationaldetails' item.id  %}">update</a>
+<a class="btn btn-success" type="submit" href="{% url 'deleteeducationaldetails' item.id  %}">delete</a></td>
+
+    </tr>
+
+  </tbody>
+    {% endfor %}
+</table>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+.registration-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.registration-form input[type="text"], .registration-form input[type="textarea"],.registration-form input[type="date"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+.registration-form a[type="submit"]{
+
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+<body>
+{% for message in messages %}
+{{ message }}
+{% endfor %}
+<form method="POST" class="registration-form" enctype="multipart/form-data" >
+    <h1>EDUCATIONAL DETAILS</h1>
+    {% csrf_token %}
+
+<!--    {{form.as_p}}-->
+<!--<form class="registration-form">-->
+    {% for item in det %}
+  <input type="date" name="yoj"value="{{ item.yoj|date:'Y-m-d' }}" >
+  <input type="date" name="yop" value="{{ item.yop|date:'Y-m-d' }}"  >
+    <input type="text"name="qualification" value="{{ item.qualification }}"  >
+        <input type="text"name="university" value="{{ item.university }}"  >
+    <input type="text"name="institution" value="{{ item.institution }}"  >
+
+    <input type="text" name="marks" value="{{ item.mark }}"  >
+  <textarea name="description">{{ item.desc }}</textarea>
+
+
+{% endfor %}
+ <input type="submit" value="submit">
+</form>
+
+</body>
+</html>

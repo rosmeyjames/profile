@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyDetails</title>
+    <style>.registration-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.registration-form input[type="text"],.registration-form input[type="file"],.registration-form input[type="url"],.registration-form input[type="number"], .registration-form input[type="textarea"],.registration-form input[type="date"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+.registration-form a[type="submit"]{
+
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}</style>
+
+
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" class="registration-form">
+    {% csrf_token %}
+<!--    {{form.as_p}}-->
+     <h1>PersonalDetails</h1>
+    <input type="text" name="name"placeholder="Name" required>
+    <input type="number" name="age"placeholder="Age" required>
+   DateOfBirth: <input type="date" name="dob"placeholder="DateOfBirth" required>
+  <input type="number" name="phno"placeholder="PhoneNumber" required>
+    <input type="text"name="address"placeholder="Address" required>
+    <input type="number" name="height"placeholder="Height" required>
+  <input type="number"name="weight" placeholder="Weight" required>
+  <input type="file"name="image" placeholder="Image" required>
+    <input type="url"name="url" placeholder="url"required>
+    <input type="text"name="username" placeholder="User Name" required>
+    <button type="submit"value="submit">submit</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title><style>
+    .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 1vh;
+    }
+
+    .table {
+    margin-left: auto;
+    padding:2cm,2cm;
+    margin-right: auto;
+
+    border-collapse: separate;
+    border-spacing: 10px; /* Adjust the value as needed */
+
+
+}</style>
+</head>
+<body>
+<h2 style="text-align: center;">CERTIFICATION DETAILS</h2>
+<!--        <h2 style="text-align: center;">-->
+<table class="table" style="text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">course</th>
+
+         <th scope="col">Operation</th>
+    </tr>
+  </thead>
+{% for item in cart1 %}
+    <tbody><tr><td>
+{{ item.certifications }}</td><td>
+
+<a class="btn btn-success" type="submit" href="{% url 'updatecertificationdetails' item.id  %}">update</a>
+<a class="btn btn-success" type="submit" href="{% url 'deletecertificationdetails' item.id  %}">delete</a>
+</td></tr>{% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

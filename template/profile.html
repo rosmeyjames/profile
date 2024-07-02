@@ -1,0 +1,19 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<h1>hai</h1>
+{{ detail.name }}
+{{ detail.age }}
+{{ detail.phone }}
+{{ detail.address }}
+{{ detail.height }}
+{{ detail.weight }}
+<img src="{{ detail.image.url }}">
+{{ mail.email }}
+{% for data in sk %}
+{{ data.skill1 }}
+{{ data.skill2 }}
+{{ data.skill3 }}
+{% endfor %}
+{% endblock %}
